@@ -1,0 +1,24 @@
+.mypage{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.mypage__container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1300px;
+    z-index: 1;
+}
+
+.mypage__main{
+    width: 80%;
+}
+
+.mypage__right{
+    width: 20%;
+}

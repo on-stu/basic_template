@@ -1,0 +1,16 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    min-height: 50px;
+    background-color: #334D5C;
+    padding:20px;
+}
+
+.footer > p {
+    font-weight: 300;
+    font-family: 'GmarketSansMedium';
+    color: whitesmoke;
+}
