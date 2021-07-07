@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { authService, dbService, firebaseInstance } from '../firebase';
 
 
-function RegisteringPage({userInfo, setUserInfo, userType, setUserType}) {
+function RegisteringPage({userType, setUserType}) {
     const history = useHistory();
     
     const [email, setEmail] = useState("");
@@ -25,14 +25,14 @@ function RegisteringPage({userInfo, setUserInfo, userType, setUserType}) {
             displayName: nickName,
         })
 
-        setUserInfo({
+        const userInfo = {
             displayName: nickName,
             email: email,
             userType: userType,
             createdAt: firebaseInstance.firestore.FieldValue.serverTimestamp(),
             subject: subject,
             introduction: introduction,
-        }); 
+        }
 
         await dbService.collection("userInfo").add(userInfo);
 

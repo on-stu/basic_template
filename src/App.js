@@ -1,31 +1,10 @@
+import { object } from 'firebase-functions/lib/providers/storage';
 import React, { useEffect, useState } from 'react';
 import AppRouter from './AppRouter';
 import { authService, dbService } from './firebase';
 
 function App() {
   const [userObj, setUserObj] = useState(null);
-  const [userInfo, setUserInfo] = useState([]);
-  const getUserName = async () => {
-    try{
-        const userName = await dbService.collection("userInfo")
-        .where("email", "==", authService.currentUser.email)
-        .get();
-        userName.forEach(document => {
-            const userInfoObj = {
-                ...document.data(),
-            id: document.id,
-            }
-           setUserInfo(userInfoObj); 
-        });
-    } catch(err) {
-        console.log(err);
-    }
-    
-}
-
-useEffect(()=>{
-    getUserName();
-}, [])
 
   useEffect(() =>{
     authService.onAuthStateChanged((user) => {
@@ -54,8 +33,10 @@ useEffect(()=>{
     });
   };
 
+
+
   return (
-    <AppRouter userInfo={userInfo} setUserInfo={setUserInfo} userObj={userObj} isLoggedIn={Boolean(userObj)} />
+    <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
   );
 }
 

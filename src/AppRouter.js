@@ -8,7 +8,7 @@ import RegisteringPage from './Pages/RegisteringPage';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 
-function AppRouter({userInfo, setUserInfo, userObj, isLoggedIn}) {
+function AppRouter({userObj, isLoggedIn}) {
     const [userType, setUserType] = useState("");
 
     return (
@@ -19,7 +19,7 @@ function AppRouter({userInfo, setUserInfo, userObj, isLoggedIn}) {
                     <MainPage />
                 </Route>
                 <Route exact path="/mypage">
-                    <MyPage setUserInfo={setUserInfo} userInfo={userInfo} />
+                    <MyPage/>
                 </Route>
                 <Route exact path="/login">
                     <LogInPage />
@@ -28,7 +28,7 @@ function AppRouter({userInfo, setUserInfo, userObj, isLoggedIn}) {
                     <RegisterPage userType={userType} setUserType={setUserType}/>
                 </Route>
                 <Route exact path="/registering">
-                    <RegisteringPage setUserInfo={setUserInfo} userInfo={userInfo} userType={userType} setUserType={setUserType}/>
+                    <RegisteringPage userType={userType} setUserType={setUserType}/>
                 </Route>
             </Switch>
             <Footer />

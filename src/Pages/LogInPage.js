@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './loginPage.css';
 import { Link, useHistory } from 'react-router-dom';
-import { authService, firebaseInstance } from '../firebase';
-import firebase from 'firebase/app'
+import { authService } from '../firebase';
 
 function LogInPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
 
     const history = useHistory();
 
@@ -31,7 +26,7 @@ function LogInPage() {
             history.replace('/mypage');
         }
         catch(error){
-            setError(error.message);
+            window.alert(error.message);
         }
         
     };
