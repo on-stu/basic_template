@@ -3,35 +3,25 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import MainPage from './Pages/MainPage';
 import MyPage from './Pages/MyPage';
 import LogInPage from './Pages/LogInPage';
-import RegisterPage from './Pages/RegisterPage';
-import RegisteringPage from './Pages/RegisteringPage';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
+import RegisteringPage from './Pages/RegisterPage';
 
 function AppRouter({userObj, isLoggedIn}) {
-    const [userType, setUserType] = useState("");
-
     return (
         <Router>
-            <Header userObj={userObj} isLoggedIn={isLoggedIn} />
             <Switch>
                 <Route exact path="/">
                     <MainPage />
                 </Route>
-                <Route exact path="/mypage">
+                <Route path="/mypage">
                     <MyPage/>
                 </Route>
-                <Route exact path="/login">
+                <Route path="/login">
                     <LogInPage />
                 </Route>
-                <Route exact path="/register">
-                    <RegisterPage userType={userType} setUserType={setUserType}/>
-                </Route>
-                <Route exact path="/registering">
-                    <RegisteringPage userType={userType} setUserType={setUserType}/>
+                <Route path="/register">
+                    <RegisteringPage/>
                 </Route>
             </Switch>
-            <Footer />
         </Router>
     )
 }

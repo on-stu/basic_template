@@ -1,4 +1,4 @@
-import { object } from 'firebase-functions/lib/providers/storage';
+
 import React, { useEffect, useState } from 'react';
 import AppRouter from './AppRouter';
 import { authService, dbService } from './firebase';
